@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
+a{
+  color: black !important;
+  
+}
+
+.input-field input[type=text]:focus {
+  border-bottom: 1px solid rgb(41, 176, 209) !important;
+   box-shadow: 0 1px 0 0 rgb(45, 180, 204) !important;
+}
+
+.brand-logo,h2{
+  font-family: 'Bangers', cursive;
+  letter-spacing: 4px;
+}
+
+.mycard{
+  margin-top: 5px;
+}
+
+.auth-card{
+  padding: 5px 15px;
+  text-align: center;
+  max-width: 400px;
+  margin: 20px auto;
+}
+.gallery{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.item{
+  width: 30%;
+  margin: 10px;
+}
+
+.home-card{
+  max-width: 500px;
+  margin: 26px auto;
+  height: max-content;
+}
+
+
+/* 
+/* //for the toast alert
+#toast-container{
+  top: 30px !important;
+  right: 20px !important;
+  color: black;
+  left: auto !important;
+} */
