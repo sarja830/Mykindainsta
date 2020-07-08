@@ -14,7 +14,7 @@ const renderList = ()=>{
       <>
       <li><Link to="/profile">Profile</Link></li>
       <li><Link to="/createpost">Create Post</Link></li>
-      
+      <li><Link to="/myfollowerspost">My following Post</Link></li>
 
       
       <button 
