@@ -40,7 +40,7 @@ const renderList = ()=>{
     return (
         <nav>
         <div className="nav-wrapper white">
-          <Link to={state?"/":"/signin"} className="brand-logo">WeFund</Link>
+          <Link to={state?"/":"/signin"} className="brand-logo">Mykindainsta</Link>
           <ul id="nav-mobile" className="right ">
             {renderList()}
           </ul>

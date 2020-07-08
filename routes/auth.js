@@ -10,15 +10,15 @@ const { JWT_SECRET }=require('../config/keys')
 const requireLogin = require('../midddleware/requireLogin')
 
 
-router.get('/protected',requireLogin,(req,res)=>{
+// router.get('/protected',requireLogin,(req,res)=>{
     
-    res.send("hello user")
-})
+//     res.send("hello user")
+// })
 
 
-router.get('/', (req, res) => {
-    res.send("hello")
-})
+// router.get('/', (req, res) => {
+//     res.send("hello")
+// })
 
 router.post('/signup', (req, res) => {
     const { name, email, password,pic } = req.body

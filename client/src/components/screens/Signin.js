@@ -50,7 +50,7 @@ const Signin = () => {
     return (
         <div className="mycard ">
             <div className="card auth-card input-field">
-                <h2>Instagram</h2>
+                <h2>Mykindainsta</h2>
                 <input
                 type="text"
                 placeholder="email"
@@ -67,7 +67,7 @@ const Signin = () => {
                 <button onClick={()=>PostData()} className="btn waves-effect waves-light green darken-2
 ">Login</button>
                <h5>
-                   <Link to="/signup">New to Instagram</Link>
+                   <Link to="/signup">New to Mykindainsta</Link>
                </h5>
             </div>
         </div>
