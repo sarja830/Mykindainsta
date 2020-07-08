@@ -23,6 +23,7 @@ require('./models/user')
 require('./models/post')
 
 
+
 // express.json() 
 //This is a built-in middleware function in Express. It parses incoming requests with JSON payloads and is based on body-parser.
 //it should be used before 

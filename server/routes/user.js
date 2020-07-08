@@ -88,4 +88,5 @@ router.put('/updatepic',requireLogin, (req, res) => {
             res.json(result)
         })
 })
+
 module.exports = router
