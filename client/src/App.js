@@ -10,7 +10,8 @@ import Signin from './components/screens/Signin';
 import { reducer, initialState } from './reducers/userReducer';
 import UserProfile from './components/screens/UserProfile';
 import SubscribedUsersPost from './components/screens/SubscribedUsersPost'
-
+import Reset from './components/screens/Reset';
+import Newpassword from './components/screens/Newpassword';
 export const userContext = createContext()
 
 //switch will ensure one route at a time
@@ -28,6 +29,7 @@ const Routing = () => {
      
     }
     else {
+      if(!history.location.pathname.startsWith('/reset'))
       history.push('/signin')
     }
   }, [])
@@ -40,6 +42,8 @@ const Routing = () => {
       <Route path='/createpost' > <CreatePost /> </Route>
       <Route path='/profile/:userid' > <UserProfile /> </Route>
       <Route path='/myfollowerspost' > <SubscribedUsersPost/> </Route>
+      <Route exact path='/reset' > <Reset/> </Route>
+      <Route path='/reset/:token' > <Newpassword/> </Route>
     </Switch>
   )
 }

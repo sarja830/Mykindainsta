@@ -9,6 +9,9 @@ router.get('/allpost',requireLogin,(req,res)=>{
     Post.find()
     .populate("postedBy","_id name")
     .populate("comments.postedBy","_id name")
+    //to show the recent post first
+    //automaticaly added bcoz of timesatmp
+    .sort('-createdAt')
     .then(posts=>{
         res.json({posts})
     })
@@ -22,6 +25,9 @@ router.get('/getsubpost',requireLogin,(req,res)=>{
     Post.find({postedBy:{$in:req.user.following}})
     .populate("postedBy","_id name")
     .populate("comments.postedBy","_id name")
+    //to show the recent post first 
+    //automaticaly added bcoz of timesatmp
+     .sort('-createdAt')
     .then(posts=>{
         res.json({posts})
     })

@@ -24,7 +24,7 @@ const [showFollow, setShowFollow] = useState(state?!state.following.includes(use
           
         })
         
-    }, [])
+    }, [userid])
 
    const followUser = ()=>{
        fetch('/follow',{
