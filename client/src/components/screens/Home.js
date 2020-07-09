@@ -8,7 +8,8 @@ const Home = () => {
 
     const { state, dispatch } = useContext(userContext)
     const [data, setData] = useState([])
-
+    //added comment using set so that comment disappears on posting
+   const [comment,setComment]=useState("")
     useEffect(() => {
         fetch('/allpost', {
             headers: {
@@ -179,9 +180,12 @@ const Home = () => {
 
                                 <form onSubmit={e=>{
                                     e.preventDefault()
-                                    makeComment(e.target[0].value,item._id)
+                                 
+                                    makeComment(comment,item._id)
+                                    setComment("")
+
                                 }}>
-                                     <input type="text" placeholder="add a comment"></input>
+                                     <input type="text" value={comment} onChange={(e)=>{setComment(e.target.value)}} placeholder="add a comment"></input>
                                 </form>
                             </div>
                         </div>
