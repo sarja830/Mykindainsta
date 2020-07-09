@@ -8,6 +8,20 @@ const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 const { JWT_SECRET }=require('../config/keys')
 const requireLogin = require('../midddleware/requireLogin')
+const nodemailer = require('nodemailer')
+const sendgridTransport = require('nodemailer-sendgrid-transport')
+
+
+
+
+const transporter = nodemailer.createTransport(sendgridTransport({
+    auth:{
+        api_key:"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"
+    }
+}))
+
+
+
 
 
 // router.get('/protected',requireLogin,(req,res)=>{
@@ -46,6 +60,14 @@ router.post('/signup', (req, res) => {
 
                     user.save()
                         .then(user => {
+                             transporter.sendMail({
+                    to:user.email,
+                    from:"sarthjain830@gmail.com",
+                    subject:"signup success",
+                    html:"<h1>Welcome to Mykindainsta</h1><p>Hope you like the app</p>"
+                })
+                          
+                           
                             res.json({ message: "saved successfully" })
                         })
                         .catch(err => {

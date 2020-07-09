@@ -8,6 +8,7 @@ front end :
 
 backend:
    bcrypt
+   sendgrid to send email
    jwt token for authentication
    apis:
        refer instaclone postman 
