@@ -7,7 +7,7 @@ front end :
    used proxy method of react 
    conext api 
    useHistory
-   
+   to run on local host in package json file set proxy
 
 backend:
    bcrypt
