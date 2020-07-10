@@ -40,6 +40,9 @@ a{
   height: max-content;
 }
 
+.material-icons:hover{
+  cursor: pointer;
+}
 
 /* 
 /* //for the toast alert
