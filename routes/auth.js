@@ -12,16 +12,25 @@ const nodemailer = require('nodemailer')
 const sendgridTransport = require('nodemailer-sendgrid-transport')
 const crypto = require('crypto')
 
+const {SENDGRID_API,EMAIL}= require('../config/keys')
+const { NODE_MAILER_EMAIL, PASSWORD } = require('../config/dev')
 
 
-const transporter = nodemailer.createTransport(sendgridTransport({
-    auth: {
-        api_key: "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"
+// const transporter = nodemailer.createTransport(sendgridTransport({
+//     auth: {
+//         api_key:SENDGRID_API
+//     }
+// }))
+
+
+
+const transporter = nodemailer.createTransport({
+    service:'gmail',
+    auth:{
+        user:NODE_MAILER_EMAIL,
+        pass:PASSWORD
     }
-}))
-
-
-
+})
 
 
 // router.get('/protected',requireLogin,(req,res)=>{
@@ -62,9 +71,15 @@ router.post('/signup', (req, res) => {
                         .then(user => {
                             transporter.sendMail({
                                 to: user.email,
-                                from: "sarthjain830@gmail.com",
+                                from: "noreplymykindainsta@gmail.com",
                                 subject: "signup success",
-                                html: "<h1>Welcome to Mykindainsta</h1><p>Hope you like the app</p>"
+                                
+                                text:"testing email"
+                            },function(err,data){
+                                if(err){console.log('error occured')}
+                                else{
+                                    console.log("email sent succesfuly")
+                                }
                             })
 
 
@@ -138,9 +153,14 @@ router.post('/reset-password', (req, res) => {
                     transporter.sendMail({
 
                         to: user.email,
-                        from: "sarthjain830@gmail.com",
+                        from: "noreplymykindainsta@gmail.com",
                         subject: "Password reset for Mykindainsta",
-                        html: `<p>you are recieving this because you have requested for a password reset</p><br/><h5>click on the link  to reset your password <a href="http://localhost:3000/reset/${token}">password reset link</a></h5>`
+                        html: `<p>you are recieving this because you have requested for a password reset</p><br/><h5>click on the link  to reset your password <a href="${EMAIL}/reset/${token}">password reset link</a></h5>`
+                    },function(err,data){
+                        if(err){console.log(err)}
+                        else{
+                            console.log("email sent succesfuly")
+                        }
                     })
                     res.json({ message: "check your email" })
                 }
